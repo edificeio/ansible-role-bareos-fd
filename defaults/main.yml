@@ -1,0 +1,2 @@
+bareos_password_dir_fd: samepasswordfordirandfd
+bareos_ip_dir: 192.168.13.118
