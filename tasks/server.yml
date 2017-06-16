@@ -1,7 +1,9 @@
 ---
 - name: Bareos-fd | Configuration the Client in the Director
-  template: src=client.conf dest=/etc/bareos/bareos-dir.d/client/{{ inventory_hostname }}.conf mode=0640 owner=bareos group=bareos
+  template: src=client.conf dest=/etc/bareos/bareos-dir.d/client/{{ item }}.conf mode=0640 owner=bareos group=bareos
   delegate_to: {{ bareos_ip_dir }}
+  with_items:
+    - {{ ansible_hostname }}
 
 - name: Bareos-fd | Configuration of the Backup Job in the Director
   template: src=job-bck.conf dest=/etc/bareos/bareos-dir.d/job/{{ inventory_hostname }}-bck.conf mode=0640 owner=bareos group=bareos
