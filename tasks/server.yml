@@ -1,16 +1,16 @@
 ---
 - name: Bareos-fd | Configuration the Client in the Director
   template: src=client.conf dest=/etc/bareos/bareos-dir.d/client/test.conf mode=0640 owner=bareos group=bareos
-  delegate_to: {{ bareos_ip_dir }}
+  delegate_to: "{{ bareos_ip_dir }}"
 
 - name: Bareos-fd | Configuration of the Backup Job in the Director
   template: src=job-bck.conf dest=/etc/bareos/bareos-dir.d/job/test-bck.conf mode=0640 owner=bareos group=bareos
-  delegate_to: {{ bareos_ip_dir }}
+  delegate_to: "{{ bareos_ip_dir }}"
 
 - name: Bareos-fd | Configuration of the Restore ob in the Director
   template: src=job-restore.conf dest=/etc/bareos/bareos-dir.d/job/test-restore.conf mode=0640 owner=bareos group=bareos
-  delegate_to: {{ bareos_ip_dir }}
+  delegate_to: "{{ bareos_ip_dir }}"
 
 - name: Bareos-fd | Reload Director configuration by Bconsole
   shell: echo "reload" | bconsole
-  delegate_to: {{ bareos_ip_dir }}
+  delegate_to: "{{ bareos_ip_dir }}"
