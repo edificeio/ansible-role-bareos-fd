@@ -1,4 +1,10 @@
 ---
+- name: Bareos-fd | Add bareos key
+  apt_key: url="http://download.bareos.org/bareos/release/{{ bareos_version }}/Debian_8.0/Release.key" state=present
+
+- name: Bareos-fd | Add bareos repo
+  apt_repository: repo="deb http://download.bareos.org/bareos/release/{{ bareos_version }}/Debian_8.0/ /" state=present update_cache=yes
+
 - name: Bareos-fd | Install Packages
   apt: name={{ item }} state=present
   with_items:

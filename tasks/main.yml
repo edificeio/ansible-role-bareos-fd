@@ -1,7 +1,4 @@
 ---
-- include_role:
-    name: common
-
 - include: install.yml
 
 - include: server.yml
