@@ -2,3 +2,4 @@ bareos_version: 16.2
 bareos_password_dir_fd: '5w0CfgbAzrf01y/e7AUlVUG5hsFmxSkhrGLWHOAiY/tm'
 bareos_ip_dir: '192.168.13.118'
 bareos_default_job: 'DefaultBackup'
+bareos_schedule: 'WeeklyCycle'
