@@ -9,6 +9,7 @@ bareos_dump:
   enabled: false
   mongodb_port: 27017
   backup_client: 'backup'
-  path_neo4j: '/srv/backup/ent/neo4j/'
-  path_mongodb: '/srv/backup/ent/mongodb/'
-  path_postgresql: '/srv/backup/ent/postgresql/'
+  path:
+    neo4j: '/srv/backup/ent/neo4j/'
+    mongodb: '/srv/backup/ent/mongodb/'
+    postgresql: '/srv/backup/ent/postgresql/'
