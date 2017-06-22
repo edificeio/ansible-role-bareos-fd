@@ -4,4 +4,12 @@ bareos_ip_dir: '192.168.13.118'
 bareos_default_job: 'DefaultBackup'
 bareos_schedule: 'WeeklyCycle-00'
 bareos_runscript:
-  - enabled: false
+  enabled: false
+bareos_dump:
+  enabled: false
+  backup_client: 'backup'
+  mongodb_port: 27017
+  path:
+    neo4j: '/srv/backup/ent/neo4j/'
+    mongodb: '/srv/backup/ent/mongodb/'
+    postgresql: '/srv/backup/ent/postgresql/'

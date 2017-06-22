@@ -1,0 +1,30 @@
+---
+- name: Bareos-fd | Configuration of the Mongodb Dump Backup Job in the Director
+  template: src=job-mongodb.conf dest=/etc/bareos/bareos-dir.d/job/{{ ansible_hostname }}-mongodb.conf mode=0640 owner=bareos group=bareos
+  when: bareos_dump.ip.mongodb is defined
+  delegate_to: "{{ bareos_ip_dir }}"
+
+- name: Bareos-fd | Configuration of the Mongodb Backup fileset in the Director
+  template: src=fileset-mongodb.conf dest=/etc/bareos/bareos-dir.d/fileset/{{ ansible_hostname }}-mongodb-fileset.conf mode=0640 owner=bareos group=bareos
+  when: bareos_dump.ip.mongodb is defined
+  delegate_to: "{{ bareos_ip_dir }}"
+
+- name: Bareos-fd | Configuration of the Postgresql Dump Backup Job in the Director
+  template: src=job-postgresql.conf dest=/etc/bareos/bareos-dir.d/job/{{ ansible_hostname }}-postgresql.conf mode=0640 owner=bareos group=bareos
+  when: bareos_dump.ip.postgresql is defined
+  delegate_to: "{{ bareos_ip_dir }}"
+
+- name: Bareos-fd | Configuration of the Postgresql Backup fileset in the Director
+  template: src=fileset-postgresql.conf dest=/etc/bareos/bareos-dir.d/fileset/{{ ansible_hostname }}-postgresql-fileset.conf mode=0640 owner=bareos group=bareos
+  when: bareos_dump.ip.postgresql is defined
+  delegate_to: "{{ bareos_ip_dir }}"
+
+- name: Bareos-fd | Configuration of the Neo4j Dump Backup Job in the Director
+  template: src=job-neo4j.conf dest=/etc/bareos/bareos-dir.d/job/{{ ansible_hostname }}-neo4j.conf mode=0640 owner=bareos group=bareos
+  when: bareos_dump.ip.neo4j is defined
+  delegate_to: "{{ bareos_ip_dir }}"
+
+- name: Bareos-fd | Configuration of the Neo4j Backup fileset in the Director
+  template: src=fileset-neo4j.conf dest=/etc/bareos/bareos-dir.d/fileset/{{ ansible_hostname }}-neo4j-fileset.conf mode=0640 owner=bareos group=bareos
+  when: bareos_dump.ip.neo4j is defined
+  delegate_to: "{{ bareos_ip_dir }}"
