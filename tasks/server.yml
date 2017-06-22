@@ -5,10 +5,12 @@
 
 - name: Bareos-fd | Configuration of the Backup Job in the Director
   template: src=job-bck.conf dest=/etc/bareos/bareos-dir.d/job/{{ ansible_hostname }}-01.conf mode=0640 owner=bareos group=bareos
+  when: bareos_backup_path is defined
   delegate_to: "{{ bareos_ip_dir }}"
 
 - name: Bareos-fd | Configuration of the Backup Job in the Director
   template: src=fileset-bck.conf dest=/etc/bareos/bareos-dir.d/fileset/{{ ansible_hostname }}-fileset.conf mode=0640 owner=bareos group=bareos
+  when: bareos_backup_path is defined
   delegate_to: "{{ bareos_ip_dir }}"
 
 - include: server-advanced.yml
